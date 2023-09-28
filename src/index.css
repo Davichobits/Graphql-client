@@ -93,3 +93,8 @@ button:focus-visible {
   font-weight: 500;
   margin-bottom: 0.5em;
 }
+.btn__container{
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}

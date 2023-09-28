@@ -20,6 +20,7 @@ export const Home = () => {
   if(error) return <p>Error :(</p>
 
   return (
+    <>
     <div className="card__container">
       {
         data.allPosts.map((post: any) => (
@@ -29,6 +30,20 @@ export const Home = () => {
           </div>
         ))
       }
+    </div >
+    <div className="btn__container">
+      <button onClick={()=>fetchPosts()}>Traer Posts</button>
     </div>
+    <section className="card__container">
+      {
+        posts && posts.allPosts.map((post: any) => (
+          <div className="card" key={post.id}>
+            <h1 className="card__title">{post.title}</h1>
+            <p className="card__description">{post.description}</p>
+          </div>
+        ))
+      }
+    </section>
+    </>
   )
 }
