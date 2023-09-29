@@ -1,4 +1,4 @@
-import { useEffect, createContext, useReducer } from "react"
+import { useEffect, createContext, useReducer, ReactNode } from "react"
 
 // reducer function
 
@@ -21,10 +21,22 @@ const initialState = {
 
 const AuthContext = createContext()
 
-export const AuthProvider = () => {
+type AuthProviderProps = {
+  children: ReactNode;
+};
+
+export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   const [state, dispatch] = useReducer(firebaseReducer, initialState)
+
+  useEffect(() => {
+    
+  }, []);
+
+  const value = { state, dispatch }
   
   return (
-    <div>authContext</div>
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
   )
 }
