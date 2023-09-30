@@ -25,7 +25,7 @@ type AuthProviderProps = {
   children: ReactNode;
 };
 
-export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
+const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   const [state, dispatch] = useReducer(firebaseReducer, initialState)
 
   useEffect(() => {
@@ -39,4 +39,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
       {children}
     </AuthContext.Provider>
   )
+}
+
+export {
+  AuthProvider,
+  AuthContext,
 }

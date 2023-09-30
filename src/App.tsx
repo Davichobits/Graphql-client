@@ -23,7 +23,7 @@ import { PublicRoutes } from "./components/PublicRoutes.tsx";
 function App() {
 
   const client = new ApolloClient({
-    uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
+    uri: import.meta.env.VITE_REACT_APP_GRAPHQL_ENDPOINT,
   })
   return (
     <ApolloProvider client={client}>
