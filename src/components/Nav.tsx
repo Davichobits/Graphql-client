@@ -1,7 +1,7 @@
 import React, { useContext, Fragment } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-// import { auth } from 'firebase'
+import * as firebase from 'firebase'
 
 export const Nav = () => {
   const { state, dispatch } = useContext(AuthContext);
@@ -9,7 +9,7 @@ export const Nav = () => {
   const { user } = state;
 
   const logout = () => {
-    auth().signOut();
+    firebase.auth().signOut();
     dispatch({
       type: "LOGGED_IN_USER",
       payload: null,

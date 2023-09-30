@@ -146,3 +146,50 @@ button:focus-visible {
     }
   }
 }
+/* --------- register ----------- */
+.text-danger{
+  color: red;
+}
+/*--------------form----------------*/
+.form{
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  & label{
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+  & input{
+    border-radius: 8px;
+    border: 1px solid #b9bace;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    color: #b9bace;
+    transition: border-color 0.25s;
+    &:focus{
+      outline: 4px auto -webkit-focus-ring-color;
+    }
+  }
+  & button{
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #4d4a4a;
+    color: #b9bace;
+    transition: border-color 0.25s;
+    &:focus{
+      outline: 4px auto -webkit-focus-ring-color;
+    }
+  }
+}
+.form-title{
+  text-align: center;
+  margin-bottom: 16px;
+}
