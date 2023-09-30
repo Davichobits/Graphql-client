@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext.tsx";
 import { ToastContainer } from "react-toastify";
-import { Nav } from "./components/forms/Nav.tsx";
+import { Nav } from "./components/Nav.tsx";
 import { Users } from "./pages/Users.tsx";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
@@ -19,6 +19,7 @@ import { SingleUser } from "./pages/posts/SingleUser.tsx";
 //Routes
 import { PrivateRoutes } from "./components/PrivateRoutes.tsx";
 import { PublicRoutes } from "./components/PublicRoutes.tsx";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
 
@@ -27,7 +28,20 @@ function App() {
   })
   return (
     <ApolloProvider client={client}>
-      <Home />
+      <Nav />
+      <ToastContainer />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/users" component={Users} />
+        <Route exact path="/register" component={Resgister} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/complete-registration" component={CompleteRegistration} />
+        <Route exact path="/password/forgot" component={PasswordForgot} />
+        <Route exact path="/password/update" component={PasswordUpdate} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/posts" component={Posts} />
+        <Route exact path="/user/:username" component={SingleUser} />
+      </Switch>
     </ApolloProvider>
   )
 }
